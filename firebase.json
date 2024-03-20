@@ -3,7 +3,7 @@
     "rules": "database.rules.json"
   },
   "hosting": {
-    "site": "dust-web-yj",
+    "site": "dustweb-78ea0",
     "public": "build",
     "ignore": [
       "firebase.json",

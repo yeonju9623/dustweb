@@ -1,0 +1,645 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  text-decoration: none;
+  font-size: 16px;
+  // rem 계산 방법: 지정할 픽셀 / Root 픽셀 (16px)
+  white-space: nowrap;
+  letter-spacing: 0;
+  line-height: normal;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+}
+
+.container{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+
+
+  // right
+  .right{
+    background-color: #000;
+    width: calc(100vw/2);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+
+    .title{
+      background-color: #4D606E;
+      border: 1px solid #000;
+      border-radius: 40px;
+      height: calc(100vh*(350px/100vh));
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      p{
+        font-family: "Hakgyoansim Kkwabaegir";
+        text-align: center;
+        font-size: 100px;
+        color: #f5f5f5;
+        -webkit-text-stroke: 1px #000;
+      }
+    }
+    .contents{
+      background-color: #D3D4D8;
+      border: 1px solid #000;
+      border-radius: 40px;
+      height: calc(100vh*(375px/100vh));
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      p{
+        width: 90%;
+        height: 80%;
+        font-family: "Noto Sans KR";
+        text-align: left;
+        font-size: 16px;
+        color: #393E46;
+        line-height: 35px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        white-space: normal;
+      }
+    }
+    .search{
+      background-color: #4D606E;
+      border: 1px solid #000;
+      border-radius: 40px;
+      height: calc(100vh*(200px/100vh));
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      p{
+        font-family: "Noto Sans KR";
+        text-align: left;
+        font-size: 24px;
+        color: #D3D4D8;
+        margin: 15px 0;
+      }
+      .dropdown{
+        width: 50%;
+        border-radius: 50px;
+        margin-bottom: 20px;
+      }
+    }
+    .leftBox{
+      display: none;
+    }
+    .btn{
+      height: calc(100vh*(100px/100vh));
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+     
+      .totalRegion{
+        border: 1px solid #000;
+        border-radius: 40px;
+        height: calc(100vh*(100px/100vh));
+        width: 50%;
+        background-color: #D3D4D8;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+      }
+      .favoriteRegion{
+        border: 1px solid #000;
+        border-radius: 40px;
+        height: calc(100vh*(100px/100vh));
+        width: 50%;
+        background-color: #D3D4D8;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+      }
+
+      p{
+        font-family: "Seolleim";
+        font-size: 14px;
+        color: #393E46;
+        align-items: center;
+
+        &:hover{
+          color: #F5F5F5;
+          -webkit-text-stroke: 1px #000;
+        }
+      }
+    }
+  }
+
+  .left{
+    background-color: #000;
+    width: calc(100vw/2);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .leftBox{
+      background-color: #F5F5F5;
+      border: 1px solid #000;
+      border-radius: 40px;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      
+      
+      .favoriteBtn{
+        width: 60px;
+        height: 60px;
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        z-index: 3;
+        cursor: pointer;
+
+        img{
+          width: 100%;
+          height: 100%;
+        }
+      }
+      .dustTitle{
+        position: absolute;
+        top: 95px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        
+        .fp{
+          font-family: "Taebaek Milkyway";
+          font-size: 28px;
+          color: #393E46;
+          align-items: center;
+          margin-bottom: 10px;
+          display: inline-block;
+        }
+        .fp.sunny{
+          color: #393E46;
+        }
+        .fp.cloud{
+          color: #a3cb3d;
+        }
+        .fp.dust{
+          color: #d4a326;
+        }
+        .fp.mask{
+          color: #bb4242;
+        }
+        .lp{
+          font-family: "Taebaek Milkyway";
+          font-size: 16px;
+          color: #393E46;
+          align-items: center;
+        }
+      }
+      .dustImg{
+        width: 350px;
+        height: 350px;
+        position: absolute;
+        top: 150px;
+        background: radial-gradient(50% 50% at 50% 50%, rgba(77, 96, 110, 0.6) 0%, rgba(115, 115, 115, 0) 100%);
+        border-radius: 360px;
+        
+        img{
+          width: 100%;
+          height: 100%;
+        }
+      }
+      .dustContents{
+        height: 72px;
+        width: auto;
+        position: absolute;
+        bottom: 100px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        p{
+          font-family: "Taebaek Milkyway";
+          font-size: 18px;
+          color: #393E46;
+          align-items: center;
+          margin-bottom: 20px;
+        }
+      }
+      .prevBtn{
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        bottom: 25px;
+        left: 25px;
+        z-index: 3;
+        cursor: pointer;
+
+        img{
+          width: 100%;
+          height: 100%;
+        }
+      }
+      .nextBtn{
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        bottom: 25px;
+        right: 25px;
+        z-index: 3;
+        cursor: pointer;
+
+        img{
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+  }
+  
+}
+
+
+// width < 920px 
+@media (max-width: 920px) {
+  .container{
+
+    // right
+    .right{
+  
+      .title{
+        border-radius: 30px;
+  
+        p{
+          font-size: 60px;
+        }
+      }
+      .contents{
+  
+        p{
+          font-size: 12px;
+          line-height: 25px;
+        }
+      }
+      .search{
+        border-radius: 30px;
+  
+        p{
+          font-size: 16px;
+        }
+        .dropdown{
+          width: 60%;
+        }
+      }
+      .btn{
+       
+        .totalRegion{
+          border-radius: 30px;
+        }
+        .favoriteRegion{
+          border-radius: 30px;
+        }
+  
+        p{
+          font-size: 16px;
+        }
+      }
+    }
+  
+    .left{
+  
+      .leftBox{
+        border-radius: 30px;
+        
+        .favoriteBtn{
+          width: 40px;
+          height: 40px;
+        }
+        
+      .dustTitle{
+        top: 130px;
+        
+        .fp{
+          font-size: 24px;
+        }
+        .lp{
+          font-size: 16px;
+        }
+      }
+        .dustImg{
+          width: 250px;
+          height: 250px;
+          border-radius: 240px;
+          top: 240px;
+        }
+        .dustContents{
+          height: 36px;
+          bottom: 120px;
+  
+          p{
+            font-size: 14px;
+          }
+        }
+      }
+    }
+    
+  }
+}
+
+// width < 500px 
+@media (max-width: 500px) {
+  .container{
+    flex-direction: column;
+  
+  
+    // right
+    .right{
+      width: 100vw;
+  
+      .title{
+        border-radius: 30px;
+        height: calc(100vh*(150px/100vh));
+  
+        p{
+          font-size: 68px;
+        }
+      }
+      .contents{
+        display: none;
+  
+        p{
+          display: none;
+        }
+      }
+      .search{
+        border-radius: 30px;
+        height: calc(100vh*(89px/100vh));
+        background-color: #D3D4D8;
+  
+        p{
+          font-size: 14px;
+          font-weight: 700;
+          color: #333333;
+          margin: 10px 0 5px 0;
+        }
+        .dropdown{
+          width: 60%;
+          margin-bottom: 5px;
+        }
+      }
+
+      .leftBox{
+        background-color: #F5F5F5;
+        border: 1px solid #000;
+        border-radius: 30px;
+        height: calc(100vh*(540px/100vh));
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+        
+        .favoriteBtn{
+          width: 50px;
+          height: 50px;
+          position: absolute;
+          top: 15px;
+          right: 15px;
+          cursor: pointer;
+  
+          img{
+            width: 100%;
+            height: 100%;
+          }
+        }
+        
+      .dustTitle{
+        position: absolute;
+        top: 55px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        
+        .fp{
+          font-family: "Taebaek Milkyway";
+          font-size: 20px;
+          color: #393E46;
+          align-items: center;
+          margin-bottom: 10px;
+          display: inline-block;
+        }
+        .fp.sunny{
+          color: #393E46;
+        }
+        .fp.cloud{
+          color: #a3cb3d;
+        }
+        .fp.dust{
+          color: #d4a326;
+        }
+        .fp.mask{
+          color: #bb4242;
+        }
+        .lp{
+          font-family: "Taebaek Milkyway";
+          font-size: 12px;
+          color: #393E46;
+          align-items: center;
+        }
+      }
+    }
+        .dustImg{
+          width: 170px;
+          height: 170px;
+          position: absolute;
+          top: 120px;
+          background: radial-gradient(50% 50% at 50% 50%, rgba(77, 96, 110, 0.6) 0%, rgba(115, 115, 115, 0) 100%);
+          border-radius: 360px;
+          
+          img{
+            width: 100%;
+            height: 100%;
+          }
+        }
+        .dustContents{
+          height: 72px;
+          width: auto;
+          position: absolute;
+          bottom: 30px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+  
+          p{
+            font-family: "Taebaek Milkyway";
+            font-size: 14px;
+            color: #393E46;
+            align-items: center;
+            margin-bottom: 15px;
+          }
+        }
+        
+      .prevBtn{
+        width: 15px;
+        height: 15px;
+        position: absolute;
+        bottom: 20px;
+        left: 25px;
+        z-index: 3;
+        cursor: pointer;
+
+        img{
+          width: 100%;
+          height: 100%;
+        }
+      }
+      .nextBtn{
+        width: 15px;
+        height: 15px;
+        position: absolute;
+        bottom: 20px;
+        right: 25px;
+        z-index: 3;
+        cursor: pointer;
+
+        img{
+          width: 100%;
+          height: 100%;
+        }
+      }
+      }
+      .btn{
+        height: calc(100vh*(65px/100vh));
+       
+        .totalRegion{
+          border-radius: 30px;
+          height: calc(100vh*(65px/100vh));
+          background-color: #4D606E;
+        }
+        .favoriteRegion{
+          border-radius: 30px;
+          height: calc(100vh*(65px/100vh));
+          background-color: #4D606E;
+        }
+  
+        p{
+          font-family: "Seolleim";
+          font-size: 16px;
+          color: #F5F5F5;
+          align-items: center;
+          -webkit-text-stroke: .5px #333;
+  
+          &:hover{
+            color: #393E46;
+          }
+        }
+      }
+      .left{
+        display: none;
+      }
+    }
+  }
+
+
+// width < 350px 
+@media (max-width: 310px) {
+  .container{
+    flex-direction: column;
+  
+  
+    // right
+    .right{
+  
+      .title{
+        border-radius: 20px;
+  
+        p{
+          font-size: 52px;
+        }
+      }
+      .search{
+        border-radius: 20px;
+
+        p{
+          font-size: 14px;
+        }
+        .dropdown{
+          width: 65%;
+        }
+      }
+
+      .leftBox{
+        border-radius: 20px;
+        
+        .favoriteBtn{
+          width: 40px;
+          height: 40px;
+        }
+        .dustTitle{
+          top: 60px;
+          
+          .fp{
+            font-size: 18px;
+          }
+          .lp{
+            font-size: 10px;
+          }
+        }
+        .dustImg{
+          width: 130px;
+          height: 130px;
+          
+          img{
+            width: 100%;
+            height: 100%;
+          }
+        }
+        .dustContents{
+          height: 36px;
+          bottom: 80px;
+  
+          p{
+            font-size: 10px;
+          }
+        }
+      }
+      .btn{
+       
+        .totalRegion{
+          border-radius: 20px;
+        }
+        .favoriteRegion{
+          border-radius: 20px;
+        }
+  
+        p{
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}

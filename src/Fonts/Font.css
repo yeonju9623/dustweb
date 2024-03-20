@@ -1,0 +1,31 @@
+@font-face {
+  font-family: "Noto Sans KR";
+  font-style: normal;
+  font-weight: 400;
+  src: url("./NOTOSANSMAYANNUMERALS-REGULAR.woff2") format("woff2"),
+        url("./NOTOSANSMAYANNUMERALS-REGULAR.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Hakgyoansim Kkwabaegir";
+  font-style: normal;
+  font-weight: 400;
+  src: url("./HAKGYOANSIMKKWABAEGIR.woff2") format("woff2"),
+        url("./HAKGYOANSIMKKWABAEGIR.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Seolleim";
+  font-style: normal;
+  font-weight: 400;
+  src: url("./SEOLLEIMCOOL.woff2") format("woff2"),
+        url("./SEOLLEIMCOOL.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Taebaek Milkyway";
+  font-style: normal;
+  font-weight: 400;
+  src: url("./TAEBAEK_MILKYWAY.woff2") format("woff2"),
+        url("./TAEBAEK_MILKYWAY.woff") format("woff");
+}

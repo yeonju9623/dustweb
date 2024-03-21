@@ -15,6 +15,17 @@
         "source": "**",
         "destination": "/index.html"
       }
+    ],
+    "headers": [
+      {
+        "source": "**",
+        "headers": [
+          {
+            "key": "Access-Control-Allow-Origin",
+            "value": "https://dustweb-78ea0.web.app/"
+          }
+        ]
+      }
     ]
   }
 }

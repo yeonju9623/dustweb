@@ -9,7 +9,7 @@ import favoriteClickIcon from './asset/favoritrClickIcon.svg';
 import prevIcon from './asset/prevIcon.svg';
 import nextIcon from './asset/nextIcon.svg';
 import { useEffect, useState } from 'react';
-// import data from './asset/data.json';
+import data from './asset/data.json';
 // import { setSelectionRange } from '@testing-library/user-event/dist/utils';
 
 function App() {
@@ -102,31 +102,32 @@ function App() {
   //   });
   // }, []);
 
+  // API 가져오는 코드!!!!!!
   // 모든 sidoName에 대한 데이터 가져오기
-  useEffect(() => {
-    // sidoName 목록 가져오기
-    const sidoNames = ["서울", "부산", "대구", "인천", "광주", "대전", "울산", "경기", "강원", "충북", "충남", "전북", "전남", "경북", "경남", "제주", "세종"];
+  // useEffect(() => {
+  //   // sidoName 목록 가져오기
+  //   const sidoNames = ["서울", "부산", "대구", "인천", "광주", "대전", "울산", "경기", "강원", "충북", "충남", "전북", "전남", "경북", "경남", "제주", "세종"];
 
-    // Promise.all을 사용하여 모든 API 호출을 병렬로 실행
-    Promise.all(sidoNames.map(sidoName => 
-      fetch(`http://apis.data.go.kr/B552584/ArpltnInforInqireSvc/getCtprvnRltmMesureDnsty?sidoName=${sidoName}&returnType=json&serviceKey=${process.env.REACT_APP_DUST_KEY}&ver=1.0`)
-        .then(response => response.json())
-        .then(data => data.response.body.items)
-        .catch(error => {
-          console.log('Error fetching data for', sidoName, ':', error);
-          return []; // 에러 발생 시 빈 배열 반환
-        })
-    ))
-    .then(allData => {
-      // 모든 API 호출이 완료되면 데이터를 하나의 배열로 합침
-      const mergedData = allData.flat();
-      // 데이터 상태 업데이트
-      setdustData(mergedData);
-    })
-    .catch(error => {
-      console.log('Error fetching data:', error);
-    });
-  }, []);
+  //   // Promise.all을 사용하여 모든 API 호출을 병렬로 실행
+  //   Promise.all(sidoNames.map(sidoName => 
+  //     fetch(`http://apis.data.go.kr/B552584/ArpltnInforInqireSvc/getCtprvnRltmMesureDnsty?sidoName=${sidoName}&returnType=json&serviceKey=${process.env.REACT_APP_DUST_KEY}&ver=1.0`)
+  //       .then(response => response.json())
+  //       .then(data => data.response.body.items)
+  //       .catch(error => {
+  //         console.log('Error fetching data for', sidoName, ':', error);
+  //         return []; // 에러 발생 시 빈 배열 반환
+  //       })
+  //   ))
+  //   .then(allData => {
+  //     // 모든 API 호출이 완료되면 데이터를 하나의 배열로 합침
+  //     const mergedData = allData.flat();
+  //     // 데이터 상태 업데이트
+  //     setdustData(mergedData);
+  //   })
+  //   .catch(error => {
+  //     console.log('Error fetching data:', error);
+  //   });
+  // }, []);
 
   // 드롭다운에서 sidoName 변경 시 stationName 초기화
   // useEffect(() => {
@@ -140,10 +141,10 @@ function App() {
   //   console.log('dustData updated:', dustData);
   // }, [dustData]);
 
-  // useEffect(() => {
-  //   // JSON 파일에서 미세먼지 데이터 가져오기
-  //   setdustData(data.response.body.items);
-  // }, []);
+  useEffect(() => {
+    // JSON 파일에서 미세먼지 데이터 가져오기
+    setdustData(data.response.body.items);
+  }, []);
   
   useEffect(() => {
     // dustData가 비어있는 경우 실행하지 않음
